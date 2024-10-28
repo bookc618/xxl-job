@@ -35,7 +35,7 @@
                     <#-- left nav -->
                     <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
                         <ul class="nav navbar-nav">
-                            <li class="active" ><a href="javascript:;">
+                            <li class="active" ><a href="javascript:">
                                 <span class="sr-only">(current)</span>
                                 【<#list GlueTypeEnum as item><#if item == jobInfo.glueType>${item.desc}</#if></#list>】
                                 ${jobInfo.jobDesc}
@@ -50,7 +50,7 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">${I18n.jobinfo_glue_rollback} <span class="caret"></span></a>
                                 <ul class="dropdown-menu" role="menu">
                                     <li <#if jobLogGlues?exists && jobLogGlues?size gt 0 >style="display: none;"</#if> >
-                                        <a href="javascript:;" class="source_version" version="version_now" glueType="${jobInfo.glueType}" >
+                                        <a href="javascript:" class="source_version" version="version_now" glueType="${jobInfo.glueType}" >
                                             <#list GlueTypeEnum as item><#if item == jobInfo.glueType>${item.desc}</#if></#list>： ${jobInfo.glueRemark}
                                         </a>
                                     </li>
@@ -58,7 +58,7 @@
 									<#if jobLogGlues?exists && jobLogGlues?size gt 0 >
 										<#list jobLogGlues as glue>
                                             <li>
-                                                <a href="javascript:;" class="source_version" version="version_${glue.id}" glueType="${glue.glueType}" >
+                                                <a href="javascript:" class="source_version" version="version_${glue.id}" glueType="${glue.glueType}" >
                                                     <#list GlueTypeEnum as item><#if item == glue.glueType>${item.desc}</#if></#list>： ${glue.glueRemark}
                                                 </a>
                                             </li>
@@ -68,7 +68,7 @@
                                 </ul>
                             </li>
                             <li id="save" >
-								<a href="javascript:;" >
+								<a href="javascript:" >
 									<i class="fa fa-fw fa-save" ></i>
                                     ${I18n.system_save}
 								</a>

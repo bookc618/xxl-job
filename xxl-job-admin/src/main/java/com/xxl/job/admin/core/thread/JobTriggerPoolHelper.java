@@ -15,7 +15,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @author xuxueli 2018-07-03 21:08:07
  */
 public class JobTriggerPoolHelper {
-    private static Logger logger = LoggerFactory.getLogger(JobTriggerPoolHelper.class);
+    private static final Logger logger = LoggerFactory.getLogger(JobTriggerPoolHelper.class);
 
 
     // ---------------------- trigger pool ----------------------
@@ -63,7 +63,7 @@ public class JobTriggerPoolHelper {
 
     // job timeout count
     private volatile long minTim = System.currentTimeMillis()/60000;     // ms > min
-    private volatile ConcurrentMap<Integer, AtomicInteger> jobTimeoutCountMap = new ConcurrentHashMap<>();
+    private final ConcurrentMap<Integer, AtomicInteger> jobTimeoutCountMap = new ConcurrentHashMap<>();
 
 
     /**
@@ -123,7 +123,7 @@ public class JobTriggerPoolHelper {
 
     // ---------------------- helper ----------------------
 
-    private static JobTriggerPoolHelper helper = new JobTriggerPoolHelper();
+    private static final JobTriggerPoolHelper helper = new JobTriggerPoolHelper();
 
     public static void toStart() {
         helper.start();

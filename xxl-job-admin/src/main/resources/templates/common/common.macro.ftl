@@ -163,7 +163,7 @@
 				<h3 class="control-sidebar-heading">近期活动</h3>
 				<ul class="control-sidebar-menu">
 					<li>
-						<a href="javascript::;">
+						<a href="javascript::">
 							<i class="menu-icon fa fa-birthday-cake bg-red"></i>
 							<div class="menu-info">
 								<h4 class="control-sidebar-subheading">张三今天过生日</h4>
@@ -172,7 +172,7 @@
 						</a>
 					</li>
 					<li>
-						<a href="javascript::;"> 
+						<a href="javascript::">
 							<i class="menu-icon fa fa-user bg-yellow"></i>
 							<div class="menu-info">
 								<h4 class="control-sidebar-subheading">Frodo 更新了资料</h4>
@@ -181,7 +181,7 @@
 						</a>
 					</li>
 					<li>
-						<a href="javascript::;"> 
+						<a href="javascript::">
 							<i class="menu-icon fa fa-envelope-o bg-light-blue"></i>
 							<div class="menu-info">
 								<h4 class="control-sidebar-subheading">Nora 加入邮件列表</h4>
@@ -190,7 +190,7 @@
 						</a>
 					</li>
 					<li>
-						<a href="javascript::;">
+						<a href="javascript::">
 						<i class="menu-icon fa fa-file-code-o bg-green"></i>
 						<div class="menu-info">
 							<h4 class="control-sidebar-subheading">001号定时作业调度</h4>

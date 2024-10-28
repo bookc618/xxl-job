@@ -130,9 +130,9 @@ public class EmbedServer {
     public static class EmbedHttpServerHandler extends SimpleChannelInboundHandler<FullHttpRequest> {
         private static final Logger logger = LoggerFactory.getLogger(EmbedHttpServerHandler.class);
 
-        private ExecutorBiz executorBiz;
-        private String accessToken;
-        private ThreadPoolExecutor bizThreadPool;
+        private final ExecutorBiz executorBiz;
+        private final String accessToken;
+        private final ThreadPoolExecutor bizThreadPool;
 
         public EmbedHttpServerHandler(ExecutorBiz executorBiz, String accessToken, ThreadPoolExecutor bizThreadPool) {
             this.executorBiz = executorBiz;

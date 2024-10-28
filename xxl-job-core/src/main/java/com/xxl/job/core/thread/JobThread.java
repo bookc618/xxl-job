@@ -25,12 +25,12 @@ import java.util.concurrent.*;
  * @author xuxueli 2016-1-16 19:52:47
  */
 public class JobThread extends Thread{
-	private static Logger logger = LoggerFactory.getLogger(JobThread.class);
+	private static final Logger logger = LoggerFactory.getLogger(JobThread.class);
 
-	private int jobId;
-	private IJobHandler handler;
-	private LinkedBlockingQueue<TriggerParam> triggerQueue;
-	private Set<Long> triggerLogIdSet;		// avoid repeat trigger for the same TRIGGER_LOG_ID
+	private final int jobId;
+	private final IJobHandler handler;
+	private final LinkedBlockingQueue<TriggerParam> triggerQueue;
+	private final Set<Long> triggerLogIdSet;		// avoid repeat trigger for the same TRIGGER_LOG_ID
 
 	private volatile boolean toStop = false;
 	private String stopReason;

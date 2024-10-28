@@ -10,8 +10,10 @@ import com.xxl.job.core.enums.RegistryConfig;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
@@ -22,8 +24,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class AdminBizTest {
 
     // admin-client
-    private static String addressUrl = "http://127.0.0.1:8080/xxl-job-admin/";
-    private static String accessToken = null;
+    private static final String addressUrl = "http://127.0.0.1:8080/xxl-job-admin/";
+    private static final String accessToken = null;
 
 
     @Test
@@ -34,11 +36,11 @@ public class AdminBizTest {
         param.setLogId(1);
         param.setHandleCode(XxlJobContext.HANDLE_CODE_SUCCESS);
 
-        List<HandleCallbackParam> callbackParamList = Arrays.asList(param);
+        List<HandleCallbackParam> callbackParamList = Collections.singletonList(param);
 
         ReturnT<String> returnT = adminBiz.callback(callbackParamList);
 
-        assertTrue(returnT.getCode() == ReturnT.SUCCESS_CODE);
+        assertEquals(ReturnT.SUCCESS_CODE, returnT.getCode());
     }
 
     /**
@@ -53,7 +55,7 @@ public class AdminBizTest {
         RegistryParam registryParam = new RegistryParam(RegistryConfig.RegistType.EXECUTOR.name(), "xxl-job-executor-example", "127.0.0.1:9999");
         ReturnT<String> returnT = adminBiz.registry(registryParam);
 
-        assertTrue(returnT.getCode() == ReturnT.SUCCESS_CODE);
+        assertEquals(ReturnT.SUCCESS_CODE, returnT.getCode());
     }
 
     /**
@@ -68,7 +70,7 @@ public class AdminBizTest {
         RegistryParam registryParam = new RegistryParam(RegistryConfig.RegistType.EXECUTOR.name(), "xxl-job-executor-example", "127.0.0.1:9999");
         ReturnT<String> returnT = adminBiz.registryRemove(registryParam);
 
-        assertTrue(returnT.getCode() == ReturnT.SUCCESS_CODE);
+        assertEquals(ReturnT.SUCCESS_CODE, returnT.getCode());
 
     }
 

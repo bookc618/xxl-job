@@ -16,8 +16,8 @@ import org.junit.jupiter.api.Test;
 public class ExecutorBizTest {
 
     // admin-client
-    private static String addressUrl = "http://127.0.0.1:9999/";
-    private static String accessToken = null;
+    private static final String addressUrl = "http://127.0.0.1:9999/";
+    private static final String accessToken = null;
 
     @Test
     public void beat() throws Exception {
@@ -27,7 +27,7 @@ public class ExecutorBizTest {
 
         // Assert result
         Assertions.assertNotNull(retval);
-        Assertions.assertNull(((ReturnT<String>) retval).getContent());
+        Assertions.assertNull(retval.getContent());
         Assertions.assertEquals(200, retval.getCode());
         Assertions.assertNull(retval.getMsg());
     }
@@ -43,7 +43,7 @@ public class ExecutorBizTest {
 
         // Assert result
         Assertions.assertNotNull(retval);
-        Assertions.assertNull(((ReturnT<String>) retval).getContent());
+        Assertions.assertNull(retval.getContent());
         Assertions.assertEquals(500, retval.getCode());
         Assertions.assertEquals("job thread is running or has trigger queue.", retval.getMsg());
     }
@@ -82,7 +82,7 @@ public class ExecutorBizTest {
 
         // Assert result
         Assertions.assertNotNull(retval);
-        Assertions.assertNull(((ReturnT<String>) retval).getContent());
+        Assertions.assertNull(retval.getContent());
         Assertions.assertEquals(200, retval.getCode());
         Assertions.assertNull(retval.getMsg());
     }

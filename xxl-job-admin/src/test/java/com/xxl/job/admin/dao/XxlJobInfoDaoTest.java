@@ -14,7 +14,7 @@ import java.util.List;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class XxlJobInfoDaoTest {
-	private static Logger logger = LoggerFactory.getLogger(XxlJobInfoDaoTest.class);
+	private static final Logger logger = LoggerFactory.getLogger(XxlJobInfoDaoTest.class);
 	
 	@Resource
 	private XxlJobInfoDao xxlJobInfoDao;

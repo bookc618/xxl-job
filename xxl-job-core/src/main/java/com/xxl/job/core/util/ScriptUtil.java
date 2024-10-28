@@ -6,7 +6,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -31,7 +33,7 @@ public class ScriptUtil {
         FileOutputStream fileOutputStream = null;
         try {
             fileOutputStream = new FileOutputStream(scriptFileName);
-            fileOutputStream.write(content.getBytes("UTF-8"));
+            fileOutputStream.write(content.getBytes(StandardCharsets.UTF_8));
             fileOutputStream.close();
         } catch (Exception e) {
             throw e;
@@ -65,10 +67,8 @@ public class ScriptUtil {
             List<String> cmdarray = new ArrayList<>();
             cmdarray.add(command);
             cmdarray.add(scriptFile);
-            if (params!=null && params.length>0) {
-                for (String param:params) {
-                    cmdarray.add(param);
-                }
+            if (params != null) {
+                Collections.addAll(cmdarray, params);
             }
             String[] cmdarrayFinal = cmdarray.toArray(new String[cmdarray.size()]);
 

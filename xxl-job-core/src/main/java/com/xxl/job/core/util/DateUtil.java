@@ -19,7 +19,7 @@ import java.util.Map;
 public class DateUtil {
 
     // ---------------------- format parse ----------------------
-    private static Logger logger = LoggerFactory.getLogger(DateUtil.class);
+    private static final Logger logger = LoggerFactory.getLogger(DateUtil.class);
 
     private static final String DATE_FORMAT = "yyyy-MM-dd";
     private static final String DATETIME_FORMAT = "yyyy-MM-dd HH:mm:ss";

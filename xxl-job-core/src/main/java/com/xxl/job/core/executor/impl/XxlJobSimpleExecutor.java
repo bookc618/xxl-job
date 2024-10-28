@@ -59,9 +59,6 @@ public class XxlJobSimpleExecutor extends XxlJobExecutor {
         for (Object bean: xxlJobBeanList) {
             // method
             Method[] methods = bean.getClass().getDeclaredMethods();
-            if (methods.length == 0) {
-                continue;
-            }
             for (Method executeMethod : methods) {
                 XxlJob xxlJob = executeMethod.getAnnotation(XxlJob.class);
                 // registry

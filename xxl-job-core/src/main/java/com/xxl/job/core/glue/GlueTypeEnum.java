@@ -13,12 +13,12 @@ public enum GlueTypeEnum {
     GLUE_NODEJS("GLUE(Nodejs)", true, "node", ".js"),
     GLUE_POWERSHELL("GLUE(PowerShell)", true, "powershell", ".ps1");
 
-    private String desc;
-    private boolean isScript;
-    private String cmd;
-    private String suffix;
+    private final String desc;
+    private final boolean isScript;
+    private final String cmd;
+    private final String suffix;
 
-    private GlueTypeEnum(String desc, boolean isScript, String cmd, String suffix) {
+    GlueTypeEnum(String desc, boolean isScript, String cmd, String suffix) {
         this.desc = desc;
         this.isScript = isScript;
         this.cmd = cmd;

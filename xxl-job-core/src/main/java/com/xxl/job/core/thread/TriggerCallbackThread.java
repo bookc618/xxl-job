@@ -24,9 +24,9 @@ import java.util.concurrent.TimeUnit;
  * Created by xuxueli on 16/7/22.
  */
 public class TriggerCallbackThread {
-    private static Logger logger = LoggerFactory.getLogger(TriggerCallbackThread.class);
+    private static final Logger logger = LoggerFactory.getLogger(TriggerCallbackThread.class);
 
-    private static TriggerCallbackThread instance = new TriggerCallbackThread();
+    private static final TriggerCallbackThread instance = new TriggerCallbackThread();
     public static TriggerCallbackThread getInstance(){
         return instance;
     }
@@ -34,7 +34,7 @@ public class TriggerCallbackThread {
     /**
      * job results callback queue
      */
-    private LinkedBlockingQueue<HandleCallbackParam> callBackQueue = new LinkedBlockingQueue<HandleCallbackParam>();
+    private final LinkedBlockingQueue<HandleCallbackParam> callBackQueue = new LinkedBlockingQueue<HandleCallbackParam>();
     public static void pushCallBack(HandleCallbackParam callback){
         getInstance().callBackQueue.add(callback);
         logger.debug(">>>>>>>>>>> xxl-job, push callback request, logId:{}", callback.getLogId());
@@ -201,8 +201,8 @@ public class TriggerCallbackThread {
 
     // ---------------------- fail-callback file ----------------------
 
-    private static String failCallbackFilePath = XxlJobFileAppender.getLogPath().concat(File.separator).concat("callbacklog").concat(File.separator);
-    private static String failCallbackFileName = failCallbackFilePath.concat("xxl-job-callback-{x}").concat(".log");
+    private static final String failCallbackFilePath = XxlJobFileAppender.getLogPath().concat(File.separator).concat("callbacklog").concat(File.separator);
+    private static final String failCallbackFileName = failCallbackFilePath.concat("xxl-job-callback-{x}").concat(".log");
 
     private void appendFailCallbackFile(List<HandleCallbackParam> callbackParamList){
         // valid

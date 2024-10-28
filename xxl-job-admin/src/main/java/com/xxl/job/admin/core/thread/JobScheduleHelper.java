@@ -20,9 +20,9 @@ import java.util.concurrent.TimeUnit;
  * @author xuxueli 2019-05-21
  */
 public class JobScheduleHelper {
-    private static Logger logger = LoggerFactory.getLogger(JobScheduleHelper.class);
+    private static final Logger logger = LoggerFactory.getLogger(JobScheduleHelper.class);
 
-    private static JobScheduleHelper instance = new JobScheduleHelper();
+    private static final JobScheduleHelper instance = new JobScheduleHelper();
     public static JobScheduleHelper getInstance(){
         return instance;
     }
@@ -33,7 +33,7 @@ public class JobScheduleHelper {
     private Thread ringThread;
     private volatile boolean scheduleThreadToStop = false;
     private volatile boolean ringThreadToStop = false;
-    private volatile static Map<Integer, List<Integer>> ringData = new ConcurrentHashMap<>();
+    private static final Map<Integer, List<Integer>> ringData = new ConcurrentHashMap<>();
 
     public void start(){
 
@@ -245,7 +245,7 @@ public class JobScheduleHelper {
                         }
 
                         // ring trigger
-                        logger.debug(">>>>>>>>>>> xxl-job, time-ring beat : " + nowSecond + " = " + Arrays.asList(ringItemData) );
+                        logger.debug(">>>>>>>>>>> xxl-job, time-ring beat : " + nowSecond + " = " + Collections.singletonList(ringItemData));
                         if (ringItemData.size() > 0) {
                             // do trigger
                             for (int jobId: ringItemData) {
@@ -292,7 +292,7 @@ public class JobScheduleHelper {
         }
         ringItemData.add(jobId);
 
-        logger.debug(">>>>>>>>>>> xxl-job, schedule push time-ring : " + ringSecond + " = " + Arrays.asList(ringItemData) );
+        logger.debug(">>>>>>>>>>> xxl-job, schedule push time-ring : " + ringSecond + " = " + Collections.singletonList(ringItemData));
     }
 
     public void toStop(){

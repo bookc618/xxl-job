@@ -6,6 +6,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.annotation.Resource;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -24,7 +25,7 @@ public class XxlJobRegistryDaoTest {
 
         List<XxlJobRegistry> list = xxlJobRegistryDao.findAll(1, new Date());
 
-        int ret2 = xxlJobRegistryDao.removeDead(Arrays.asList(1));
+        int ret2 = xxlJobRegistryDao.removeDead(Collections.singletonList(1));
     }
 
 }

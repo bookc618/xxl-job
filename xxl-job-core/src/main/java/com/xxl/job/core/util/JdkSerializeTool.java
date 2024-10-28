@@ -9,7 +9,7 @@ import java.io.*;
  * @author xuxueli 2020-04-12 0:14:00
  */
 public class JdkSerializeTool {
-    private static Logger logger = LoggerFactory.getLogger(JdkSerializeTool.class);
+    private static final Logger logger = LoggerFactory.getLogger(JdkSerializeTool.class);
 
 
     // ------------------------ serialize and unserialize ------------------------

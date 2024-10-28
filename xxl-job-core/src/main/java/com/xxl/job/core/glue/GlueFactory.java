@@ -33,8 +33,8 @@ public class GlueFactory {
 	/**
 	 * groovy class loader
 	 */
-	private GroovyClassLoader groovyClassLoader = new GroovyClassLoader();
-	private ConcurrentMap<String, Class<?>> CLASS_CACHE = new ConcurrentHashMap<>();
+	private final GroovyClassLoader groovyClassLoader = new GroovyClassLoader();
+	private final ConcurrentMap<String, Class<?>> CLASS_CACHE = new ConcurrentHashMap<>();
 
 	/**
 	 * load new instance, prototype

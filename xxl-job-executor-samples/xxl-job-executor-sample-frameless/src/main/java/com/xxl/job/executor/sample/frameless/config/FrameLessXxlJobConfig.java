@@ -7,17 +7,19 @@ import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Properties;
 
 /**
  * @author xuxueli 2018-10-31 19:05:43
  */
 public class FrameLessXxlJobConfig {
-    private static Logger logger = LoggerFactory.getLogger(FrameLessXxlJobConfig.class);
+    private static final Logger logger = LoggerFactory.getLogger(FrameLessXxlJobConfig.class);
 
 
-    private static FrameLessXxlJobConfig instance = new FrameLessXxlJobConfig();
+    private static final FrameLessXxlJobConfig instance = new FrameLessXxlJobConfig();
     public static FrameLessXxlJobConfig getInstance() {
         return instance;
     }
@@ -45,7 +47,7 @@ public class FrameLessXxlJobConfig {
         xxlJobExecutor.setLogRetentionDays(Integer.valueOf(xxlJobProp.getProperty("xxl.job.executor.logretentiondays")));
 
         // registry job bean
-        xxlJobExecutor.setXxlJobBeanList(Arrays.asList(new SampleXxlJob()));
+        xxlJobExecutor.setXxlJobBeanList(Collections.singletonList(new SampleXxlJob()));
 
         // start executor
         try {
@@ -70,7 +72,7 @@ public class FrameLessXxlJobConfig {
         try {
             ClassLoader loder = Thread.currentThread().getContextClassLoader();
 
-            in = new InputStreamReader(loder.getResourceAsStream(propertyFileName), "UTF-8");;
+            in = new InputStreamReader(loder.getResourceAsStream(propertyFileName), StandardCharsets.UTF_8);
             if (in != null) {
                 Properties prop = new Properties();
                 prop.load(in);

@@ -15,7 +15,7 @@ import javax.servlet.http.Cookie;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 
 public class JobInfoControllerTest extends AbstractSpringMvcTest {
-  private static Logger logger = LoggerFactory.getLogger(JobInfoControllerTest.class);
+  private static final Logger logger = LoggerFactory.getLogger(JobInfoControllerTest.class);
 
   private Cookie cookie;
 
